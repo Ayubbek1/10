@@ -2,7 +2,7 @@ let user = {
     name : "Abdul",
     user_name : "Adam__34",
     publications : 2,
-    public_acoount:false ,
+    public_acoount: false,
     followers : 88,
     following : 203,
     friends : 7 ,
@@ -25,11 +25,22 @@ let user_secret_info = {
 let sum_info = Object.assign({}, user , user_secret_info)
 let sum_info_keys = Object.keys(sum_info)
 let sum_info_values = Object.values(sum_info)
-let arr = [sum_info_keys , sum_info_values]
+let arr = sum_info_keys.concat(sum_info_values)
 let types ={
     string: [],
     number:[],
     object:[],
     boolean : []
 }
-console.log(arr)
+let filtered = arr.filter(item => {
+    if (typeof(item) == "string"){
+        types.string.push(item)
+    }else if(typeof(item) == "number") {
+        types.number.push(item)
+    }else if(typeof(item) =="object" ){
+        types.object.push(item)
+    }else if(typeof(item) == "boolean" ){
+        types.boolean.push(item)
+    }
+})
+console.log(types)
